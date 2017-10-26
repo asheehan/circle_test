@@ -49,4 +49,4 @@ jobs:
             rsync -ravhz --stats --progress ./_build/prod/rel/$APP_NAME $APP_USER@$APP_HOST:apps;
       - deploy:
           name: Post-deploy and App restart on Production
-          command: ./.circleci/post-deploy.sh
+          command: sh ./.circleci/post-deploy.sh

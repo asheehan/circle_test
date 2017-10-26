@@ -9,7 +9,8 @@ ssh $APP_USER@$APP_HOST <<ENDSSH
   ln -sfn lib/$APP_NAME-$APP_VERSION/priv/static static;
 
   echo "upgrading app";
-  PORT=4000 ./bin/$APP_NAME upgrade $APP_VERSION >> deploy-log.txt
+  ./bin/$APP_NAME stop >> deploy-log.txt
+  PORT=4000 ./bin/$APP_NAME start >> deploy-log.txt
 
   echo "finished"
 ENDSSH

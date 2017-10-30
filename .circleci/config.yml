@@ -6,7 +6,7 @@ jobs:
       - image: circleci/postgres:9.6
         environment:
           POSTGRES_USER: postgres
-          
+
     environment:
       - APP_VERSION: "0.0.1"
 
@@ -49,4 +49,4 @@ jobs:
             rsync -ravhz --stats --progress ./_build/prod/rel/$APP_NAME $APP_USER@$APP_HOST:apps;
       - deploy:
           name: Post-deploy and App restart on Production
-          command: sh ./.circleci/post-deploy.sh
+          command: bash ./.circleci/post-deploy.sh
